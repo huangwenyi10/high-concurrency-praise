@@ -116,19 +116,361 @@ Spring DataJPA是Spring Data的一个子项目，它通过提供基于JPA的Resp
 
 
 
+##### Redis缓存安装
+
+
+
+- Redis缓存安装（下载地址：<http://redis.io/>   ）   
+
+
+
+##### 
 
 
 
 
 
 
-##### **点赞功能的传统实现**
+
+\###增加一个值key为name，value为ay
+
+127.0.0.1:6379> set name 'ay'
+
+OK
+
+\###查询name的值
+
+127.0.0.1:6379> get name
+
+"ay"
+
+\###更新name的值为al
+
+127.0.0.1:6379> set name 'al'
+
+OK
+
+\###查询name的值
+
+127.0.0.1:6379> get name
+
+"al"
+
+\###删除name的值
+
+127.0.0.1:6379> del name
+
+(integer) 1
+
+\###查询是否存在name，0代表不存在
+
+127.0.0.1:6379> exists name
+
+(integer) 0
+
+127.0.0.1:6379>
+
+List集合的增删改查：
+
+\###添加key为user_list，value为’ay’,’al’的list集合
+
+127.0.0.1:6379> lpush user_list 'ay' 'al'
+
+(integer) 2
+
+\###查询key为user_list的集合
+
+127.0.0.1:6379> lrange user_list 0 -1
+
+1) "al"
+
+2) "ay"
+
+\###往list尾部添加love元素
+
+127.0.0.1:6379> rpush user_list 'love'
+
+(integer) 3
+
+\###往list头部添加hope元素
+
+127.0.0.1:6379> lpush user_list 'hope'
+
+(integer) 4
+
+\###查询key为user_list的集合
+
+127.0.0.1:6379> lrange user_list 0 -1
+
+1) "hope"
+
+2) "al"
+
+3) "ay"
+
+4) "love"
+
+\###更新index为0的值
+
+127.0.0.1:6379> lset user_list 0 'wish'
+
+OK
+
+\###查询key为user_list的集合
+
+127.0.0.1:6379> lrange user_list 0 -1
+
+1) "wish"
+
+2) "al"
+
+3) "ay"
+
+4) "love"
+
+\###删除index为0的值
+
+127.0.0.1:6379> lrem user_list 0 'wish'
+
+(integer) 1
+
+\###查询key为user_list的集合
+
+127.0.0.1:6379> lrange user_list 0 -1
+
+1) "al"
+
+2) "ay"
+
+3) "love"
+
+127.0.0.1:6379>
+
+Set集合的增删改查：
+
+\###添加key为user_set,value为"ay" "al"  "love"的集合
+
+127.0.0.1:6379> sadd user_set "ay" "al"  "love"
+
+(integer) 3
+
+\###查询key为user_set集合
+
+127.0.0.1:6379> smembers user_set
+
+1) "al"
+
+2) "ay"
+
+3) "love"
+
+\###删除value为love，返回1表示删除成功，0表示失败
+
+127.0.0.1:6379> srem user_set 'love'
+
+(integer) 1
+
+\###查询set集合所有值
+
+127.0.0.1:6379> smembers user_set
+
+1) "al"
+
+2) "ay"
+
+\###添加love元素，set集合是没有顺序的，所以无法判断添加到那个位置
+
+127.0.0.1:6379> sadd user_set 'love'
+
+(integer) 1
+
+\###查询set集合所有值，发现添加到第二个位置
+
+127.0.0.1:6379> smembers user_set
+
+1) "al"
+
+2) "love"
+
+3) "ay"
+
+\###添加love元素，由于set集合已经存在，返回0代表添加不成功，但是不会报错
+
+127.0.0.1:6379> sadd user_set 'love'
+
+(integer) 0
+
+​    Hash集合的增删改查：
+
+\###清除数据库
+
+127.0.0.1:6379> flushdb
+
+OK
+
+\###创建hash，key为user_hset,字段为user1，值为ay
+
+127.0.0.1:6379> hset user_hset "user1"  "ay"
+
+(integer) 1
+
+\###往key为user_hset添加字段为user2，值为al
+
+127.0.0.1:6379> hset user_hset "user2"  "al"
+
+(integer) 1
+
+\###查询user_hset字段长度
+
+127.0.0.1:6379> hlen user_hset
+
+(integer) 2
+
+\###查询user_hset所有字段
+
+127.0.0.1:6379> hkeys user_hset
+
+1) "user1"
+
+2) "user2"
+
+\###查询user_hset所有值
+
+127.0.0.1:6379> hvals user_hset
+
+1) "ay"
+
+2) "al"
+
+\###查询字段user1的值
+
+127.0.0.1:6379> hget user_hset "user1"
+
+"ay"
+
+\###获取key为user_hset所有的字段和值
+
+127.0.0.1:6379> hgetall user_hset
+
+1) "user1"
+
+2) "ay"
+
+3) "user2"
+
+4) "al"
+
+\###更新字段user1的值为new_ay
+
+127.0.0.1:6379> hset user_hset "user1""new_ay"
+
+(integer) 0
+
+\###更新字段user2的值为new_al
+
+127.0.0.1:6379> hset user_hset "user2""new_al"
+
+(integer) 0
+
+\###获取key为user_hset所有的字段和值
+
+127.0.0.1:6379> hgetall user_hset
+
+1) "user1"
+
+2) "new_ay"
+
+3) "user2"
+
+4) "new_al"
+
+\###删除字段user1和值
+
+127.0.0.1:6379> hdel user_hset user1
+
+(integer) 1
+
+\###获取key为user_hset所有的字段和值
+
+127.0.0.1:6379> hgetall user_hset
+
+1) "user2"
+
+2) "new_al"
+
+127.0.0.1:6379>
+
+SortedSet集合的增删改查
+
+\###清除数据库
+
+127.0.0.1:6379> flushdb
+
+OK
+
+\###SortedSet集合添加ay元素，分数为1
+
+127.0.0.1:6379> zadd user_zset 1 "ay"
+
+(integer) 1
+
+\###SortedSet集合添加al元素，分数为2
+
+127.0.0.1:6379> zadd user_zset 2 "al"
+
+(integer) 1
+
+\###SortedSet集合添加love元素，分数为3
+
+127.0.0.1:6379> zadd user_zset 3 "love"
+
+(integer) 1
+
+\###按照分数由小到大查询user_zset集合元素
+
+127.0.0.1:6379> zrange user_zset 0 -1
+
+1) "ay"
+
+2) "al"
+
+3) "love"
+
+\###按照分数由大到小查询user_zset集合元素
+
+127.0.0.1:6379> zrevrange user_zset 0 -1
+
+1) "love"
+
+2) "al"
+
+3) "ay"
+
+\###查询元素ay的分数值
+
+127.0.0.1:6379> zscore user_zset "ay"
+
+"1"
+
+\###查询元素love的分数值
+
+127.0.0.1:6379> zscore user_zset "love"
+
+"3"
 
 
 
-1)数据库保存实现
+##### Spring Boot集成Redis缓存
 
-2)查看Mysql内存使用情况（注意搜索一些可视化工具）
+
+
+
+
+##### 设计说说点赞Redis数据结构
+
+
+
+
 
 
 
