@@ -54,29 +54,69 @@ Intellij IDEA + JDK7(以上) + MySQL
 
 
 
+1.数据库表的字段长度限制
 
 
 
-
-##### **Java代码Entity开发**
+##### **实体类Model开发**
 
 
 
 1)实体开发
 
-2)实体的增删改查开发（利用插件MyBatisCodeHelper）
+
+
+##### Spring Boot集成Spring Data JPA
 
 
 
-##### **前端页面的简单开发**
+**Spring Data JPA简介：**
+
+JPA(Java Persistence API)是Sun官方提出的Java持久化规范。所谓规范即只定义标准规则，不提供实现。而JPA的主要实现有Hibernate、EclipseLink、OpenJPA等。JPA是一套规范，不是一套产品。Hibernate是一套产品，如果这些产品实现了JPA规范，那么我们可以叫它们为JPA的实现产品。
+
+Spring DataJPA是Spring Data的一个子项目，它通过提供基于JPA的Respository，极大地减少了JPA作为数据访问方案的代码量。通过Spring Data JPA框架，开发者可以省略实现持久层业务逻辑的工作，唯一要做的，就只是声明持久层的接口，其它都交给 SpringData JPA 来帮你完成。
 
 
 
-1)页面的开发
+##### Repository类开发
 
-2)jquery引入
 
-3)点赞事件的传统实现
+
+
+
+
+
+##### **Controller类Service类开发**
+
+
+
+
+
+##### Spring Boot集成thymeleaf模板引擎
+
+
+
+
+
+##### findAll方法实现
+
+
+
+
+
+##### Thymeleaf微博说说数据展示
+
+
+
+
+
+
+
+##### 用户点赞功能实现
+
+
+
+
 
 
 

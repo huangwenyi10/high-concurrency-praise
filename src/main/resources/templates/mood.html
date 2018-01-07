@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<b>说说列表:</b>
+<div id="moods" th:each="mood:${moods}">
+---------------------------------------------------------
+<div></div>
+<b>用户：</b><span id="account" th:text="${mood.userName}"></span>//
+<b>说说内容：</b><span id="content" th:text="${mood.content}"></span>//
+<b>发表时间：</b><span id="publish_time" th:text="${mood.publishTime}"></span>//
+<b>点赞数：</b><span id="praise_num" th:text="${mood.praiseNum}"></span>//
+<div>
+    <a href="#" th:href="@{/mood/praise(userId=${mood.userId},moodId=${mood.id})}" id="praise">点赞</a>
+</div>
+
+</div>
+</body>
+
+</html>
