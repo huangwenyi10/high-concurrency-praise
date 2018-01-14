@@ -14,7 +14,8 @@
 <b>发表时间：</b><span id="publish_time" th:text="${mood.publishTime}"></span>//
 <b>点赞数：</b><span id="praise_num" th:text="${mood.praiseNum}"></span>//
 <div>
-    <a href="#" th:href="@{/mood/praise(userId=${mood.userId},moodId=${mood.id})}" id="praise">点赞</a>
+    <!--<a href="#" th:href="@{/mood/praise(userId=${mood.userId},moodId=${mood.id})}" id="praise">点赞</a>-->
+    <a href="#" th:href="@{/mood/praiseForRedis(userId=${mood.userId},moodId=${mood.id})}" id="praise">点赞</a>
 </div>
 
 </div>

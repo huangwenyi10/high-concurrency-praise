@@ -12,6 +12,10 @@ Intellij IDEA + JDK7(以上) + MySQL
 
 
 
+
+
+
+
 ### 高并发点赞功能设计
 
 
@@ -502,17 +506,47 @@ OK
 
 
 
-key：mood_id   value: MoodPraiseRel对象
+
+
+##### SpringBoot集成Quartz定时器
 
 
 
-key：xxxxx     value ：Map （Map<String,List>  ）
+
+
+##### Quartz定时器点赞批量入库(注意分布式情况)
 
 
 
-##### **添加定时器，点赞批量入库(注意分布式情况)**
 
 
+##### ActiveMQ介绍与安装
+
+
+
+
+
+
+
+
+
+##### Spring Boot集成Active MQ
+
+
+
+1.添加依赖：
+
+
+
+2.添加配置：
+
+spring.activemq.broker-url=tcp://localhost:61616
+
+spring.activemq.in-memory=true
+
+spring.activemq.pool.enabled=false
+
+spring.activemq.packages.trust-all=true
 
 
 
@@ -522,25 +556,7 @@ key：xxxxx     value ：Map （Map<String,List>  ）
 
 
 
-##### **并发工具的使用**
-
-1）Jmeter工具的使用
 
 
 
-
-
-
-
-
-
-### **Redis分布式锁实现秒杀功能**
-
-
-
-1)锁的超时时间如何设置，如何评估这个时间
-
-
-
-2）
 
