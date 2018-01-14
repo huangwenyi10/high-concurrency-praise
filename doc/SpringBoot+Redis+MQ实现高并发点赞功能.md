@@ -6,6 +6,68 @@
 
 
 
+
+
+
+
+##### **课程介绍**
+
+
+
+《SpringBoot + Redis + MQ 高并发点赞项目实战》是一套项目实战的项目，通过该项目的学习，学员可以快速掌握Spring Boot使用、Redis缓存的使用、ActiveMQ消息中间件的使用。同时可以了解大型互联网公司如何解决高并发的问题。本套视频提供了完整的高并发的解决方案，让学员掌握高并发的解决方案。
+
+
+
+##### **开发环境**
+
+Intellij IDEA + JDK(8) + SpringBoot
+
+##### **课程目标**
+
+
+
+帮助学员
+
+
+
+##### **课程计划**
+
+更新完成
+
+##### **课程目录**
+
+- 课程介绍
+
+
+- 一分钟快速搭建Spring Boot
+- Spring Boot连接MySQL数据库
+- 数据库表设计
+- 创建数据库表
+- 实体类Model开发
+- Spring Boot集成Spring Data JPA
+- Repository类开发
+- Spring Boot集成Thymeleaf模板引擎
+- Controller类Service类开发
+- findAll方法实现
+- Thymeleaf用户说说数据展示
+- 用户点赞功能实现
+- Redis缓存安装
+- Spring Boot集成Redis缓存
+- 设计说说点赞Redis数据结构
+- 说说点赞Redis实现
+- Spring Boot集成Quartz定时器
+- Quartz定时器点赞记录入库
+- ActiveMQ介绍与安装
+- Spring Boot集成MctiveMQ
+- ActiveMQ异步方式实现点赞
+- 点赞功能设计方案梳理
+
+
+
+
+
+
+
 开发环境要求：
 
 Intellij IDEA + JDK7(以上) + MySQL
@@ -550,13 +612,15 @@ spring.activemq.packages.trust-all=true
 
 
 
-**点赞功能添加队列抵抗大并发**
+**点赞功能添加MQ队列抵抗大并发**
 
 
 
 
 
 
+
+##### 点赞功能设计方案梳理
 
 
 
