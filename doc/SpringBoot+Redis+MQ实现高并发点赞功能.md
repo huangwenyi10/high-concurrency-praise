@@ -1,4 +1,4 @@
-# 课题研究
+# SpringBoot + Redis + MQ 高并发点赞项目实战
 
 
 
@@ -14,13 +14,17 @@
 
 
 
-《SpringBoot + Redis + MQ 高并发点赞项目实战》是一套项目实战的项目，通过该项目的学习，学员可以快速掌握Spring Boot使用、Redis缓存的使用、ActiveMQ消息中间件的使用。同时可以了解大型互联网公司如何解决高并发的问题。本套视频提供了完整的高并发的解决方案，让学员掌握高并发的解决方案。
+《SpringBoot + Redis + MQ 高并发点赞项目实战》是一套项目实战的项目，通过该项目的学习，学员可以快速掌握Spring Boot使用、Redis缓存的使用、ActiveMQ消息中间件的使用。同时可以了解大型互联网公司如何解决高并发的问题。本套视频提供了完整的高并发的解决方案，让学员在实战中快速成长。
 
 
 
 ##### **开发环境**
 
-Intellij IDEA + JDK(8) + SpringBoot
+
+
+Intellij IDEA + JDK(8) + SpringBoot + MySql+ Redis + MQ
+
+
 
 ##### **课程目标**
 
@@ -32,7 +36,11 @@ Intellij IDEA + JDK(8) + SpringBoot
 
 ##### **课程计划**
 
+
+
 更新完成
+
+
 
 ##### **课程目录**
 
@@ -64,17 +72,9 @@ Intellij IDEA + JDK(8) + SpringBoot
 
 
 
-
-
-
-
 开发环境要求：
 
 Intellij IDEA + JDK7(以上) + MySQL
-
-
-
-
 
 
 
